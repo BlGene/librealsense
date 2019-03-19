@@ -11,24 +11,16 @@
 #include <mutex>
 #include <experimental/filesystem>
 
-// Includes for time display
+// Includes for time savedir
 #include <unistd.h>
-#include <imgui.h>
-#include "imgui_impl_glfw.h"
 #include "opencv2/opencv.hpp"
 
 #include <librealsense2/rs.hpp> // Include RealSense Cross Platform API
-#include "example.hpp"          // Include short list of convenience functions for rendering
 
-// 3rd party header for writing png files
-#define STB_IMAGE_WRITE_IMPLEMENTATION
-#include "stb_image_write.h"
 namespace fs = std::experimental::filesystem;
 
 // Helper function for dispaying time conveniently
 std::string pretty_time(std::chrono::nanoseconds duration);
-// Helper function for rendering a seek bar
-void draw_seek_bar(rs2::playback& playback, int* seek_pos, float2& location, float width);
 
 std::string record_dir;
 std::atomic<bool> keep_recording(true);
